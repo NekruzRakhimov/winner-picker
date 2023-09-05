@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Ball from "../components/Ball";
 
 const getDigitsArray = (number) => {
@@ -18,14 +18,22 @@ const SecondPage = () => {
     const [randomNumber, setRandomNumber] = useState(0);
 
     const handleMessage = (_e) => {
-        setRandomNumber(0);
+        setRandomNumber(null);
+        console.log(1)
 
-        console.log(_e)
-        const message = JSON.parse(localStorage.getItem('randomNumber')); // Получаем сообщение из localStorage
-        if (message) {
-            setRandomNumber(message.data);
-            // localStorage.removeItem('randomNumber'); // Удаляем сообщение из localStorage
-        }
+        setTimeout(() => {
+            // console.log(_e)
+            console.log(2)
+            const message = JSON.parse(localStorage.getItem('randomNumber')); // Получаем сообщение из localStorage
+            if (message) {
+
+                setRandomNumber(message.data);
+                // localStorage.removeItem('randomNumber'); // Удаляем сообщение из localStorage
+            }
+
+        }, 500)
+
+
     };
 
     useEffect(() => {

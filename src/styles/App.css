@@ -283,12 +283,14 @@ body {
 @keyframes ball-scale {
     0% {
         transform: scale(0);
+        filter: blur(12px);
     }
     75% {
         transform: scale(1.25);
     }
     100% {
         transform: scale(1);
+        filter: blur(0px);
     }
 }
 
