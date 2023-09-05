@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useEffect, useState} from "react";
+import {ImportContext} from "./context";
+import {BrowserRouter} from "react-router-dom";
+import AppRouter from "./components/AppRouter";
+import LogOut from "./components/LogOut";
+import "./styles/App.css";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // localStorage.setItem("isImported", "false")
+    const [isImported, setIsImported] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("isImported")) {
+            setIsImported(true)
+        }
+    }, []);
+
+
+
+    return (
+        <div className="app-wrapper">
+            <ImportContext.Provider value={{
+                isImported,
+                setIsImported
+            }}>
+                <BrowserRouter>
+                    <AppRouter/>
+                </BrowserRouter>
+            </ImportContext.Provider>
+        </div>
+
+    );
 }
 
 export default App;
