@@ -304,6 +304,8 @@ body {
     border-radius: 100%;
     position: relative;
     overflow: hidden;
+    margin-right: 8px;
+    box-shadow: 0px 0px 16px #00000025;
     /*animation: ball-scale 0.5s cubic-bezier(0,0, 0.5, 1.25);*/
 }
 
